@@ -29,7 +29,7 @@ def index(request):
     # print(episodios)
     # print(r['results'])
     context = {'all_episodes': episodios}
-    return render(request, 't1/index.html', context)
+    return render(request, 'index.html', context)
 
 
 def episode(request, episode_id):
@@ -46,7 +46,7 @@ def episode(request, episode_id):
         info_episodio.append(dicc_characters)
     #print(info_episodio)
     context = {'info_episode': info_episodio}
-    return render(request, 't1/episode.html', context)
+    return render(request, 'episode.html', context)
 
 
 def character(request, character_id):
@@ -85,7 +85,7 @@ def character(request, character_id):
     info_character.append(dicc_image)
     #print(info_character)
     context = {'info_character': info_character}
-    return render(request, 't1/character.html', context)
+    return render(request, 'character.html', context)
 
 
 def location(request, location_id):
@@ -98,7 +98,7 @@ def location(request, location_id):
         dicc_char = {'resident': r_char['name'], 'id': r_char['id']}
         info_location.append(dicc_char)
     context = {'info_location': info_location}
-    return render(request, 't1/location.html', context)
+    return render(request, 'location.html', context)
 
 
 def search(request):
@@ -155,7 +155,7 @@ def search(request):
             r_loc = requests.get(next_url).json()
     #print(info_busqueda)
     context = {'search_result': info_busqueda}
-    return render(request, 't1/search.html', context)
+    return render(request, 'search.html', context)
 
 
 
