@@ -1,0 +1,49 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 't1/style.css' %}">
+
+<title> Search view </title>
+
+<header>
+    <form class="topnav" method="GET" action="/t1/search/" >
+    <input  type="search" name="search" id="search" placeholder="Search">
+    <button type="submit"> Go </button>
+    </form>
+</header>
+
+
+<body>
+<h1 style="color:#F7C9E3"> Search results:</h1>
+
+
+<ul>
+    <h5 style="color:#F08080"> Characters:</h5>
+{% for e in search_result %}
+    {% if e.character %}
+    <li style="color:#D6EAF8"><a href="/t1/character/{{ e.id }}/" style="color:#9EE5EF"> {{ e.character }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+<ul>
+    <h5 style="color:#F08080"> Episodes:</h5>
+    {% for e in search_result %}
+    {% if e.episode %}
+    <li style="color:#D6EAF8"><a href="/t1/{{ e.id }}/" style="color:#9EE5EF"> {{ e.episode }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+
+<ul>
+    <h5 style="color:#F08080"> Locations:</h5>
+    {% for e in search_result %}
+    {% if e.location %}
+    <li style="color:#D6EAF8"><a href="/t1/location/{{ e.id }}/" style="color:#9EE5EF"> {{ e.location }}</a></li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+
+
+</body>
