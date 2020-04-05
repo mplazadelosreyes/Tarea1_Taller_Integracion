@@ -3,7 +3,7 @@ import requests
 #from django.template import loader
 
 # https://github.com/curiousrohan/ramapi/blob/master/ramapi/ramapi.py
-base_url = "https://rickandmortyapi.com/api/"
+base_url = "https://integracion-rick-morty-api.herokuapp.com/api/"
 episode_url = base_url+"episode/"
 character_url = base_url+"character/"
 location_url = base_url+"location/"
@@ -106,7 +106,7 @@ def search(request):
         name = request.GET.get('search', None)
     # busqueda
     # personajes
-    search_character_url = "https://rickandmortyapi.com/api/character/?name={}".format(name)
+    search_character_url = "https://integracion-rick-morty-api.herokuapp.com/api/character/?name={}".format(name)
     r_char = requests.get(search_character_url).json()
     info_busqueda = []
     # print(r_char)
@@ -123,7 +123,7 @@ def search(request):
                 break
             r_char = requests.get(next_url).json()
     # episodios
-    search_episode_url = "https://rickandmortyapi.com/api/episode/?name={}".format(name)
+    search_episode_url = "https://integracion-rick-morty-api.herokuapp.com/api/episode/?name={}".format(name)
     r_ep = requests.get(search_episode_url).json()
     if 'error' in r_ep.keys():
         pass
@@ -133,12 +133,12 @@ def search(request):
                 dicc = {'id': todo_item['id'],
                         'episode': todo_item['name']}
                 info_busqueda.append(dicc)
-            next_url = r_char['info']['next']
+            next_url = r_ep['info']['next']
             if next_url == '':
                 break
             r_ep = requests.get(next_url).json()
     # location
-    search_location_url = "https://rickandmortyapi.com/api/location/?name={}".format(name)
+    search_location_url = "https://integracion-rick-morty-api.herokuapp.com/api/location/?name={}".format(name)
     r_loc = requests.get(search_location_url).json()
     # print(r_loc)
     if 'error' in r_loc.keys():
