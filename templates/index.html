@@ -17,7 +17,7 @@
 <h1 style="color:#F7C9E3"> Episodes </h1>
     <ul>
     {% for e in all_episodes %}
-        <li style="color:#D6EAF8"><a href="/t1/{{ e.id }}/" style="color:#9EE5EF"> {{ e.name }}</a>   Air date: {{e.air_date}}   Episode: {{e.episode}} </li>
+        <li style="color:#D6EAF8"><a href="/{{ e.id }}/" style="color:#9EE5EF"> {{ e.name }}</a>   Air date: {{e.air_date}}   Episode: {{e.episode}} </li>
     {% endfor %}
     </ul>
 
