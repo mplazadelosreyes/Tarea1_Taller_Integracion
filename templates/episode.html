@@ -5,7 +5,7 @@
 <title> Episode view </title>
 
 <header>
-    <form class="topnav" method="GET" action="/t1/search/" >
+    <form class="topnav" method="GET" action="/search/" >
     <input  type="search" name="search" id="search" placeholder="Search">
     <button type="submit"> Go </button>
     </form>
@@ -21,7 +21,7 @@
     <li style="color:#D6EAF8"> Name: {{e.name}}  Air_date:{{e.air_date}}  Episode:  {{e.episode}} </li>
     <h5 style="color:white"> Characters in this episode:</h5>
     {% else %}
-    <li style="color:#D6EAF8"><a href="/t1/character/{{ e.id }}/" style="color:#9EE5EF"> {{ e.name }}</a></li>
+    <li style="color:#D6EAF8"><a href="/character/{{ e.id }}/" style="color:#9EE5EF"> {{ e.name }}</a></li>
     {% endif %}
 {% endfor %}
 </ul>
